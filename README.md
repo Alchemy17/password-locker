@@ -12,16 +12,16 @@
 
 # What the app does
 
-* To create an account with details - log in and password
-* Generate a password for a new credential
-* Store existing login credentials
+* Creates an account with a log-in and password
+* Generates a password for a new credential
+* Stores existing login credentials
 
 ## Prerequisites
 * Python3.6
 
 # How it works
 
-#### A user simply creates an account then log in to store exiting credentials and their passwords or ask the system to generate a random password for them
+#### A user simply creates an account then logs in to store existing credentials and their passwords or ask the system to generate a random password for them
 
 # Technologies Used
 

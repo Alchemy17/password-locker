@@ -39,7 +39,7 @@ def delete_credential(credentials):
     '''
     Function to delete credentials from list
     '''
-    Credentials.delete_credentials()
+    credentials.delete_credentials()
 
 def find_credentials(name):
     '''
@@ -169,20 +169,17 @@ def main():
                                     print("Credentials do not exist")
                                     print('')
         
-                elif short_code == 'dl':
-                    print("Input name of account to be deleted")
-                    delete_name =input()
+                    elif short_code == 'dl':
+                        print("Input name of account to be deleted")
+                        delete =input()
 
-                    if check_if_user_exists(delete_name):
-                        delete_users(find_users(delete_name))
-                        print ('-'*10)
-                        print(f"USER {delete_name} DELETED")
-                        print ("\n")
-                        
-                    else:
-                        print('-'*10)
-                        print ("USER UNDER THE GIVEN NAME DOES NOT EXIST")
-                        print("\n")
+                        if user_exist(delete):
+                            delete_credential(find_credentials(delete))
+                            print ('-'*10)
+                            print(f"{delete} haas been deleted \n")                        
+                        else:
+                            print('-'*10)
+                            print ("User doesn't exist")
 
 if __name__ == '__main__':
     main()
