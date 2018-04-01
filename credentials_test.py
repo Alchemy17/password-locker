@@ -74,11 +74,19 @@ class TestCredentials(unittest.TestCase):
         Test returns a boolean if contact exists or not.
         '''
         self.new_credential.save_credentials()
-        test_credential = Credentials("Felix","twitter","Felback24")
+        test_credential = Credentials("Test","twitter", "user", "0124")
         test_credential.save_credentials()
 
-        credential_exist = Credentials.credential_exists("Felix")
+        credential_exist = Credentials.credential_exists("Test")
         self.assertTrue(credential_exist)
+    
+    def test_display_credentials(self):
+        '''
+        method that returns a list of all credentials saved
+        '''
+        self.assertEqual(Credentials.display_credentials(), Credentials.list_for_credentials)
+    
+    
        
 
 
