@@ -169,7 +169,20 @@ def main():
                                     print("Credentials do not exist")
                                     print('')
         
+                elif short_code == 'dl':
+                    print("Input name of account to be deleted")
+                    delete_name =input()
 
+                    if check_if_user_exists(delete_name):
+                        delete_users(find_users(delete_name))
+                        print ('-'*10)
+                        print(f"USER {delete_name} DELETED")
+                        print ("\n")
+                        
+                    else:
+                        print('-'*10)
+                        print ("USER UNDER THE GIVEN NAME DOES NOT EXIST")
+                        print("\n")
 
 if __name__ == '__main__':
     main()
