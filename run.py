@@ -33,7 +33,7 @@ def save_user_credential(credentials):
     '''
     Function to save credentials
     '''
-    Credentials.save_credentials()
+    credentials.save_credentials()
 
 def delete_credential(credentials):
     '''
@@ -91,9 +91,12 @@ def main():
                     print ('-'*10)
                     print("cc :to add a credential")
                     print("dc :to display a credential") 
+                    print("fc :to find a credential")
                     print("dl :to delete a credential")
                     print("ex :to exit")
-                    short_code = input() 
+                    print("\nInput here:") 
+                    short_code = input()
+                    print("\n") 
 
                     if short_code == 'cc':
                         while True:
@@ -117,39 +120,54 @@ def main():
                                 
                                 print("Listing credentials")
                                 print ('-'*10)
-                                for credential in Credentials.displayl_credentials():
+                                for credential in Credentials.display_credentials():
                                     if acct_name == credential.account_name:
-                                        print(f"credential:{credential.account_name}        PASSWORD:{credential.password}")
+                                        print(f"credential: {credential.account_name}        Password:{credential.password}")
                                         print ("\n")
                             
 
                             elif short_code1 == '2':
-                                print ('-'*10)
-                                print(f"WELCOME {credential_user_name}, ADD A CREDENTIAL")
-                                print ('-'*10) 
-                                print("ENTER CREDENTIAL NAME")
-                                name_of_credential =input()
-                                print("YOUR PASSWORD HAS BEEN GENERATED")
-                                password_of_credential = random.randint(10000,99000)
+                                print("Here is a generated password")
+                                new_password = random.randint(10000,99000)
 
-                                save_credential_run(create_credential(credential_user_name,name_of_credential,password_of_credential))
-                                
-                                print("YOUR CREDENTIALS")
-                                print ('-'*10)
-                                for credential in Credentials.display_all_credentials():
-                                    if credential_user_name == credential.user_name:
-                                        print(f"CREDENTIAL:{credential.credential_name}......PASSWORD:{credential.password}")
-                                        print ("\n")
+                                print(f"{new_password}")
 
-                            elif short_code1 == 'ok':
+                            elif short_code1 == '3':
                                 break
 
                             elif short_code1 == 'ex':
                                 break
                             else:
-                                    print("INVALID INPUT PLEASE USE THE PROVIDED SHORTCODES")
-                                    print ("\n")                                   
-            
+                                    print("Kindly use the the following short codes. Thank You.")
+                                    print ("\n")  
+
+                    elif short_code == 'dc':
+                        if display_credentials():       
+                            print("Listing credentials")
+                            print ('-'*10)
+                            for credential in credential.display_credentials():
+                                print(f"Account : {credential.account_name}\nAccount for : {credential.account} \n Username: {credential.user_name} \n Password : {credential.password}")
+
+                                print('')
+                        else:
+                            print('')
+                            print("Oops! Nothing here try 'cc' to add some")
+                            print('')           
+                    elif short_code == 'fc':
+                            print("Enter the Account you want")
+                            find_name = input()
+                            if credentials_exists(find_name):
+                                    find_name = find_credentials(find_name)
+                                    print(f"{find_name.account_name}")
+                                    print('-'*20)
+                                    print(f"Account    {find_name.account_name}")
+                                    print(f"Password   {find_name.password}")
+                                    print('')
+
+                            else:
+                                    print('')
+                                    print("Credentials do not exist")
+                                    print('')
         
 
 
