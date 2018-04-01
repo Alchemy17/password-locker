@@ -97,26 +97,29 @@ def main():
 
                     if short_code == 'cc':
                         while True:
-                            print("1 : to insert password")
+                            print("1 : to insert a new credential")
                             print("2 : generate password")
                             print("3 : back to main menu")
                             short_code1 = input()
 
                             if short_code1 == '1':
-                                print(f"WELCOME {credential_user_name}, ADD A CREDENTIAL") 
+                                print(f"New Credential") 
                                 print ('-'*10)
-                                print("ENTER CREDENTIAL NAME")
-                                name_of_credential =input()
-                                print("ENTER CREDENTIAL'S PASSWORD")
-                                password_of_credential = input()
-
-                                save_credential_run(create_credential(credential_user_name,name_of_credential,password_of_credential))
+                                print("Insert the account name: ")
+                                acct_name = input()
+                                print("Account for: ")
+                                acct = input()
+                                print("User Name: ")
+                                u_name = input()
+                                print("Password: ")
+                                p_word = input()
+                                save_user_credential(create_credentials(acct_name,acct,u_name, p_word))
                                 
-                                print("YOUR CREDENTIALS")
+                                print("Listing credentials")
                                 print ('-'*10)
-                                for credential in Credentials.display_all_credentials():
-                                    if credential_user_name == credential.user_name:
-                                        print(f"CREDENTIAL:{credential.credential_name}......PASSWORD:{credential.credential_password}")
+                                for credential in Credentials.displayl_credentials():
+                                    if acct_name == credential.account_name:
+                                        print(f"credential:{credential.account_name}        PASSWORD:{credential.password}")
                                         print ("\n")
                             
 
@@ -135,7 +138,7 @@ def main():
                                 print ('-'*10)
                                 for credential in Credentials.display_all_credentials():
                                     if credential_user_name == credential.user_name:
-                                        print(f"CREDENTIAL:{credential.credential_name}......PASSWORD:{credential.credential_password}")
+                                        print(f"CREDENTIAL:{credential.credential_name}......PASSWORD:{credential.password}")
                                         print ("\n")
 
                             elif short_code1 == 'ok':
