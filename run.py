@@ -182,10 +182,13 @@ def main():
                             print ("User doesn't exist")
                     
                     elif short_code == "ex":
-                            print("Bye .......")
+                            print("Thanks")
                             break
                     else:
                             print("I really didn't get that. Please use the short codes")
+        elif short_code == "ex":
+                print("GoodBye Monsieur.")
+                break
 
 if __name__ == '__main__':
     main()
